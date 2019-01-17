@@ -1,0 +1,15 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+  <!-- TO UPDATE -->
+<input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="clienteService.selectedCliente.$key">
+
+  <label for="name">Nombre: </label>
+  <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="clienteService.selectedCliente.nombre" placeholder="Nombre" class="mb-2 form-control">
+  <label for="ap">Apellidos: </label>
+  <input type="text" name="apellidos" #apellidos="ngModel" [(ngModel)]="clienteService.selectedCliente.apellidos" placeholder="Apellidos" class="mb-2 form-control">
+  <label for="name">Puesto: </label>
+  <input type="text" name="puesto" #puesto="ngModel" [(ngModel)]="clienteService.selectedCliente.puesto" placeholder="Puesto" class="mb-2 form-control">
+  <button type="submit" class="btn btn-primary">Insertar</button>
+  <button type="reset" (click)="resetForm(form)" class="btn btn-danger ml-2">Restablecer</button>
+  
+</form>
