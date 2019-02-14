@@ -15,6 +15,8 @@ export class ListaClientesComponent implements OnInit {
 
   clienteLista: Cliente[];
 
+  contenidoLC:string;
+
   constructor(private clienteService: ClienteService) { }
 
   ngOnInit() {

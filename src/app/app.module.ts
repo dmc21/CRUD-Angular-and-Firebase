@@ -7,12 +7,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
 
 //Firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
+
+//Router 
+
+import {Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [
+  {path: '', component: LoginComponent},
+  {path: 'admin', component: FormComponent}
+]
 
 
 @NgModule({
@@ -21,13 +31,15 @@ import { ListaClientesComponent } from './lista-clientes/lista-clientes.componen
     FormComponent,
     NavbarComponent,
     ListaClientesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

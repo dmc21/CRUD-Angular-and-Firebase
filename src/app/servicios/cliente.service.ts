@@ -40,7 +40,7 @@ export class ClienteService {
       nombre: cliente.nombre,
       apellidos: cliente.apellidos,
       puesto: cliente.puesto
-});
+    });
   }
 
 }
