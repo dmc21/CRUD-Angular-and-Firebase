@@ -14,10 +14,14 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 //Router 
 
 import {Routes, RouterModule } from '@angular/router';
+//FormsReactive
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -39,7 +43,9 @@ const routes: Routes = [
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

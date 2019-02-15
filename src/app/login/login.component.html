@@ -1,0 +1,23 @@
+
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <form [formGroup]="loginForm" (ngSubmit)="submitForm($event)">
+            <div class="form-group">
+              <label for="mail">E-mail</label>
+              <input type="email" class="form-control" formControlName="mail" placeholder="E-mail">
+            </div>
+            <div class="form-group">
+              <label for="pass">Password</label>
+              <input type="password" class="form-control" formControlName="pass" placeholder="Contraseña">
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Login" class="btn btn-success mr-2" *ngIf="loginForm.valid">
+              <input type="reset" value="Restablecer" class="btn btn-danger">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { Router } from '@angular/router';
+
+//servicio login
+import { LoginService } from '../servicios/login.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +13,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  loginForm: FormGroup;
+  constructor(
+    private formBuilder:FormBuilder, private loginService: LoginService,private router: Router
+    ) {
+    
+   }
 
   ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      mail:['',[Validators.required, Validators.email]],
+      pass:['',[Validators.required]]
+    });
+  }
+
+  submitForm(event){
+    event.preventDefault();
+    this.loginService.login(this.loginForm.value).then(res =>{
+      this.router.navigate(['admin']);
+    }, err =>{
+      console.log('no existe');
+    });
   }
 
 }
