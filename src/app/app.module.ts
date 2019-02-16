@@ -9,24 +9,24 @@ import { FormComponent } from './form/form.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 
-//Firebase
+// Firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-//Router 
+// Router
 
 import {Routes, RouterModule } from '@angular/router';
-//FormsReactive
+// FormsReactive
 
 import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'admin', component: FormComponent}
-]
+];
 
 
 @NgModule({
