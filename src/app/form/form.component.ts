@@ -4,10 +4,14 @@ import { NgForm } from '@angular/forms';
 // Servicios
 import { ClienteService } from '../servicios/cliente.service';
 
+import { LoginService } from '../servicios/login.service';
+
+import { Router } from '@angular/router';
 
 
 
-//Clases
+
+// Clases
 
 import { Cliente } from '../cliente';
 
@@ -18,32 +22,47 @@ import { Cliente } from '../cliente';
 })
 export class FormComponent implements OnInit {
 
-  constructor(private clienteService: ClienteService) { }
+  constructor(
+    private clienteService: ClienteService,
+    private login: LoginService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
+
+    this.login.estaLogueado().catch(e => {
+      this.router.navigate(['']);
+    });
+
+
     this.clienteService.getClientes();
     this.resetForm();
   }
 
-  resetForm(formulario?: NgForm){
-    if(formulario != null) {
+  resetForm(formulario?: NgForm) {
+    if (formulario != null) {
       formulario.reset();
-    } 
+    }
     this.clienteService.selectedCliente = new Cliente();
   }
 
 
 
-  onSubmit(cliente: NgForm){
+  onSubmit(cliente: NgForm) {
 
-  if(cliente.value.$key == null){
+  if (cliente.value.$key == null) {
       this.clienteService.insertClient(cliente.value);
-  }else{
+  } else {
     this.clienteService.updateCliente(cliente.value);
   }
-  
+
   this.resetForm(cliente);
 
+  }
+
+  desconectar() {
+    this.login.logout();
+    this.router.navigate(['']);
   }
 
 }

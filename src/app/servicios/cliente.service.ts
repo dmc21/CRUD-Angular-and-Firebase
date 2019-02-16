@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Cliente } from '../cliente';
 
-//Firebase
+// Firebase
 
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
@@ -18,11 +18,11 @@ export class ClienteService {
 
   selectedCliente: Cliente = new Cliente();
 
-  getClientes(){
+  getClientes() {
     return this.listaClientes = this.firebase.list('clientes');
   }
 
-  insertClient(cliente: Cliente){
+  insertClient(cliente: Cliente) {
 
     this.listaClientes.push({
       nombre: cliente.nombre,
@@ -31,11 +31,11 @@ export class ClienteService {
     });
   }
 
-  removeCliente(id: string){
+  removeCliente(id: string) {
     this.listaClientes.remove(id);
   }
 
-  updateCliente(cliente: Cliente){
+  updateCliente(cliente: Cliente) {
     this.listaClientes.update(cliente.$key, {
       nombre: cliente.nombre,
       apellidos: cliente.apellidos,

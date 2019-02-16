@@ -4,34 +4,36 @@
 
       <!-- TO UPDATE -->
     <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="clienteService.selectedCliente.$key">
-    
+
       <div class="form-group">
         <label for="name">Nombre: </label>
         <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="clienteService.selectedCliente.nombre" placeholder="Nombre" class="form-control">
       </div>
-    
+
       <div class="form-group">
         <label for="ap">Apellidos: </label>
         <input type="text" name="apellidos" #apellidos="ngModel" [(ngModel)]="clienteService.selectedCliente.apellidos" placeholder="Apellidos" class="form-control">
       </div>
-    
+
       <div class="form-group">
         <label for="name">Puesto: </label>
         <input type="text" name="puesto" #puesto="ngModel" [(ngModel)]="clienteService.selectedCliente.puesto" placeholder="Puesto" class="mb-2 form-control">
       </div>
-      
-     
+
+
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Enviar</button>
-        <button type="reset" (click)="resetForm(form)" class="btn btn-danger ml-2">Restablecer</button>  
+        <button type="reset" (click)="resetForm(form)" class="btn btn-danger ml-2">Restablecer</button>
       </div>
-      
+
     </form>
   </div>
   <div class="col-md-6">
     <app-lista-clientes></app-lista-clientes>
   </div>
 </div>
+
+<button (click)="desconectar()">Cerrar Sesión</button>
 
 
 
