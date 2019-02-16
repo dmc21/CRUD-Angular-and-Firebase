@@ -35,10 +35,6 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.loginForm.value).then(
       res => {
         this.router.navigate(['admin']);
-      },
-      err => {
-        console.log('no existe');
-      }
-    );
+      });
   }
 }

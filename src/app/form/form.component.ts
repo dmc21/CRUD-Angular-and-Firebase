@@ -59,10 +59,4 @@ export class FormComponent implements OnInit {
   this.resetForm(cliente);
 
   }
-
-  desconectar() {
-    this.login.logout();
-    this.router.navigate(['']);
-  }
-
 }
